@@ -1,143 +1,47 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tema 8 - Testes</title>
-
-    <link rel="stylesheet" href="Style.css">
-
-    <style>
-        body {
-            perspective: 1200px;
-        }
-
-        /* 🔥 ENTRADA (vindo da direita) */
-        .slide {
-            animation: pageIn 0.8s ease;
-            transform-origin: right;
-            position: relative;
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-        }
-
-        @keyframes pageIn {
-            from {
-                opacity: 0;
-                transform: rotateY(90deg) translateX(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: rotateY(0deg) translateX(0);
-            }
-        }
-
-        /* 🔥 SAÍDA (virando pra esquerda) */
-        .page-out {
-            animation: pageOut 0.8s ease forwards;
-            transform-origin: left;
-            backface-visibility: hidden;
-        }
-
-        @keyframes pageOut {
-            0% {
-                transform: rotateY(0deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: rotateY(-90deg) translateX(-50px);
-                opacity: 0;
-            }
-        }
-
-        /* ZONA SEGURA */
-        .content-box {
-            padding: 60px 30px 30px 30px;
-        }
-
-        /* TIPOS */
-        .tipos {
-            margin-top: 20px;
-        }
-
-        /* BOTÃO INTRODUÇÃO */
-        .btn-introducao {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            padding: 8px 15px;
-            border-radius: 8px;
-            background: #6c79ff;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 0.9rem;
-            z-index: 10;
-        }
-
-            .btn-introducao:hover {
-                background: #4e5bd9;
-            }
-
-        /* BOTÕES */
-        .nav-buttons {
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
+    <title>Tema 8 - Testes de Software</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
     <div class="slide" id="slide">
-
-        <div class="content-box">
-
-            <button type="button" class="btn-introducao" onclick="irIntroducao()">Introdução ⬅</button>
-
+        <div class="content-box with-top-button">
+            <button class="btn-introducao" onclick="irIntroducao()">Introdução &larr;</button>
             <h1>Testes de Software</h1>
 
             <div class="grid">
                 <div class="box">
-                    <h3>Função</h3>
-                    <p>Verificar a qualidade, a funcionalidade e a conformidade do software com os requisitos.</p>
+                    <h3>Propósito</h3>
+                    <p>Verificar a qualidade do produto e comprovar se suas funcionalidades atendem aos requisitos propostos.</p>
                 </div>
 
                 <div class="box">
-                    <h3>Atualização</h3>
-                    <p>O SWEBOK aborda testes em Agile, DevOps, TDD, IA, blockchain, nuvem, segurança e privacidade.</p>
+                    <h3>Contextos atuais</h3>
+                    <p>O SWEBOK relaciona testes com Agile, DevOps, TDD, IA, blockchain, nuvem, segurança e privacidade.</p>
                 </div>
             </div>
 
-            <div class="tipos">
-                <span>Unitários</span>
-                <span>Integração</span>
-                <span>End-to-End</span>
-                <span>Regressão</span>
-                <span>Aceitação</span>
-            </div>
+            <h2>Tipos de Teste</h2>
+            <ul>
+                <li>Unitários: validam pequenas unidades de lógica em isolamento</li>
+                <li>Integração: verificam interação e fluxo de dados entre módulos</li>
+                <li>End-to-End: simulam o comportamento real do usuário do início ao fim</li>
+            </ul>
 
-            <div class="placeholder">
-                Os testes ajudam a aumentar a confiança na aplicação e a identificar falhas antes que afetem o usuário final.
-            </div>
+            <div class="placeholder">Além deles, há testes de regressão e aceitação do usuário para validar funcionalidades e mudanças futuras.</div>
 
             <div class="nav-buttons">
-                <button type="button" data-link="Tópico 7.html" onclick="transicao(event)">⬅ Voltar</button>
-                <button type="button" data-link="Tópico 9.html" onclick="transicao(event)">Próximo ➡</button>
+                <a href="Tópico 7.html" onclick="navegar(event, 'Tópico 7.html', 'voltar')"><button>&larr; Voltar</button></a>
+                <a href="Tópico 9.html" onclick="navegar(event, 'Tópico 9.html', 'proximo')"><button>Próximo &rarr;</button></a>
             </div>
-
         </div>
 
-        <div class="footer">
-            Tema 8 - Engenharia de Software
-        </div>
+        <div class="footer">Tema 8 - Engenharia de Software</div>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
-
