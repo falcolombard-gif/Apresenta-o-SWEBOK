@@ -1,136 +1,50 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tema 11 - Padrões e Certificações</title>
-
-    <link rel="stylesheet" href="Style.css">
-
-    <style>
-        body {
-            perspective: 1200px;
-        }
-
-        /* 🔥 ENTRADA (vindo da direita) */
-        .slide {
-            animation: pageIn 0.8s ease;
-            transform-origin: right;
-            position: relative;
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-        }
-
-        @keyframes pageIn {
-            from {
-                opacity: 0;
-                transform: rotateY(90deg) translateX(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: rotateY(0deg) translateX(0);
-            }
-        }
-
-        /* 🔥 SAÍDA (virando pra esquerda) */
-        .page-out {
-            animation: pageOut 0.8s ease forwards;
-            transform-origin: left;
-            backface-visibility: hidden;
-        }
-
-        @keyframes pageOut {
-            0% {
-                transform: rotateY(0deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: rotateY(-90deg) translateX(-50px);
-                opacity: 0;
-            }
-        }
-
-        /* ZONA SEGURA */
-        .content-box {
-            padding: 60px 30px 30px 30px;
-        }
-
-        /* TÍTULOS */
-        .titulo-secao {
-            margin-bottom: 10px;
-            color: #a8b2ff;
-        }
-
-        /* BOTÃO INTRODUÇÃO */
-        .btn-introducao {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            padding: 8px 15px;
-            border-radius: 8px;
-            background: #6c79ff;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 0.9rem;
-            z-index: 10;
-        }
-
-            .btn-introducao:hover {
-                background: #4e5bd9;
-            }
-
-        /* BOTÕES */
-        .nav-buttons {
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
+    <title>Tema 11 - Organização e Formação Profissional</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
     <div class="slide" id="slide">
-
-        <div class="content-box">
-
-            <button type="button" class="btn-introducao" onclick="irIntroducao()">Introdução ⬅</button>
-
-            <h1>Formação Profissional</h1>
+        <div class="content-box with-top-button">
+            <button class="btn-introducao" onclick="irIntroducao()">Introdução &larr;</button>
+            <h1>Organização e Formação Profissional</h1>
 
             <div class="grid">
                 <div class="box">
-                    <h3 class="titulo-secao">Organização</h3>
-                    <p>O SWEBOK deve ser usado como guia prático de referência, adaptando áreas como requisitos, design, construção e testes à realidade da equipe.</p>
+                    <h3 class="titulo-secao">Organização do conhecimento</h3>
+                    <ul>
+                        <li>Guia de referência prático</li>
+                        <li>Áreas adaptáveis à realidade das equipes</li>
+                        <li>Base para requisitos, design, construção e testes</li>
+                        <li>Suporte à qualidade do produto final</li>
+                    </ul>
                 </div>
 
                 <div class="box">
-                    <h3 class="titulo-secao">Desenvolvimento</h3>
-                    <p>Padroniza terminologias, processos e melhores práticas reconhecidas mundialmente.</p>
+                    <h3 class="titulo-secao">Desenvolvimento profissional</h3>
+                    <ul>
+                        <li>Padroniza terminologias e processos</li>
+                        <li>Aproxima teoria acadêmica e exigências da indústria</li>
+                        <li>Ajuda estudantes e profissionais de TI</li>
+                        <li>Contribui para formação e atuação na área</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="placeholder">
-                O artigo conclui que o SWEBOK auxilia a formação acadêmica e profissional, conectando teoria, prática e exigências da indústria.
-            </div>
+            <div class="placeholder">O SWEBOK funciona como um dos principais guias para crescimento acadêmico e profissional em Engenharia de Software.</div>
 
             <div class="nav-buttons">
-                <button type="button" data-link="Tópico 10.html" onclick="transicao(event)">⬅ Voltar</button>
-                <button type="button" data-link="Referências.html" onclick="transicao(event)">Referências ➡</button>
+                <a href="Tópico 10.html" onclick="navegar(event, 'Tópico 10.html', 'voltar')"><button>&larr; Voltar</button></a>
+                <a href="Referências.html" onclick="navegar(event, 'Referências.html', 'proximo')"><button>Referências &rarr;</button></a>
             </div>
-
         </div>
 
-        <div class="footer">
-            Tema 11 - Engenharia de Software
-        </div>
+        <div class="footer">Tema 11 - Engenharia de Software</div>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
-
