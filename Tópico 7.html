@@ -1,147 +1,49 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tema 7 - Desenvolvimento</title>
-
-    <link rel="stylesheet" href="Style.css">
-
-    <style>
-        body {
-            perspective: 1200px;
-        }
-
-        /* 🔥 ENTRADA (vindo da direita) */
-        .slide {
-            animation: pageIn 0.8s ease;
-            transform-origin: right;
-            position: relative;
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-        }
-
-        @keyframes pageIn {
-            from {
-                opacity: 0;
-                transform: rotateY(90deg) translateX(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: rotateY(0deg) translateX(0);
-            }
-        }
-
-        /* 🔥 SAÍDA (virando pra esquerda) */
-        .page-out {
-            animation: pageOut 0.8s ease forwards;
-            transform-origin: left;
-            backface-visibility: hidden;
-        }
-
-        @keyframes pageOut {
-            0% {
-                transform: rotateY(0deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: rotateY(-90deg) translateX(-50px);
-                opacity: 0;
-            }
-        }
-
-        /* ZONA SEGURA */
-        .content-box {
-            padding: 60px 30px 30px 30px;
-        }
-
-        /* DESTAQUE */
-        .destaque span {
-            display: inline-block;
-            margin: 5px;
-            padding: 8px 12px;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        /* BOTÃO INTRODUÇÃO */
-        .btn-introducao {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            padding: 8px 15px;
-            border-radius: 8px;
-            background: #6c79ff;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 0.9rem;
-            z-index: 10;
-        }
-
-            .btn-introducao:hover {
-                background: #4e5bd9;
-            }
-
-        /* BOTÕES */
-        .nav-buttons {
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
+    <title>Tema 7 - Desenvolvimento e Programação</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
     <div class="slide" id="slide">
+        <div class="content-box with-top-button">
+            <button class="btn-introducao" onclick="irIntroducao()">Introdução &larr;</button>
+            <h1>Desenvolvimento e Programação</h1>
 
-        <div class="content-box">
-
-            <button type="button" class="btn-introducao" onclick="irIntroducao()">Introdução ⬅</button>
-
-            <h1>Desenvolvimento</h1>
-
-            <p>
-                O desenvolvimento envolve a criação de instruções executadas por computadores por meio de linguagens de programação.
-            </p>
+            <p>O desenvolvimento transforma o projeto em código, usando linguagens de programação como interface entre humanos e máquinas.</p>
 
             <div class="grid">
                 <div class="box">
-                    <h3>Linguagens</h3>
-                    <p>Funcionam como interface entre humanos e máquinas, permitindo construir sistemas digitais.</p>
+                    <h3>Implementação</h3>
+                    <p>Criação das instruções executadas pelo computador, respeitando regras sintáticas e semânticas da linguagem escolhida.</p>
                 </div>
 
                 <div class="box">
-                    <h3>Boas Práticas</h3>
-                    <p>Incluem Clean Code, refatoração constante, controle de versão, testes automatizados e princípios SOLID.</p>
+                    <h3>Boas práticas</h3>
+                    <p>Clean Code, refatoração constante, controle de versão, testes automatizados e princípios SOLID.</p>
                 </div>
             </div>
 
-            <div class="destaque" style="margin-top: 20px;">
-                Um código bem escrito facilita manutenção, atualização e adaptação conforme as necessidades do projeto.
+            <div class="destaque">
+                <span>Legibilidade</span>
+                <span>Manutenção</span>
+                <span>Adaptação</span>
+                <span>Qualidade</span>
             </div>
 
-            <div class="placeholder">
-                O artigo reforça que práticas de programação melhoram a qualidade inicial e futura do sistema.
-            </div>
+            <div class="placeholder">Um código bem construído facilita futuras correções, atualizações e mudanças de requisito.</div>
 
             <div class="nav-buttons">
-                <button type="button" data-link="Tópico 6.html" onclick="transicao(event)">⬅ Voltar</button>
-                <button type="button" data-link="Tópico 8.html" onclick="transicao(event)">Próximo ➡</button>
+                <a href="Tópico 6.html" onclick="navegar(event, 'Tópico 6.html', 'voltar')"><button>&larr; Voltar</button></a>
+                <a href="Tópico 8.html" onclick="navegar(event, 'Tópico 8.html', 'proximo')"><button>Próximo &rarr;</button></a>
             </div>
-
         </div>
 
-        <div class="footer">
-            Tema 7 - Engenharia de Software
-        </div>
+        <div class="footer">Tema 7 - Engenharia de Software</div>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
-
