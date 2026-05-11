@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 2 - O que é SWEBOK</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <style>
+        body {
+            perspective: 1200px;
+        }
+
+        /* 🔥 ENTRADA (vindo da direita - mantida) */
+        .slide {
+            animation: pageIn 0.8s ease;
+            transform-origin: right;
+            position: relative;
+            transform-style: preserve-3d; /* 🔥 MELHORIA */
+            backface-visibility: hidden; /* 🔥 MELHORIA */
+        }
+
+        @keyframes pageIn {
+            from {
+                opacity: 0;
+                transform: rotateY(90deg) translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: rotateY(0deg) translateX(0);
+            }
+        }
+
+        /* 🔥 SAÍDA CORRIGIDA (igual Tema 1 - virando pra esquerda) */
+        .page-out {
+            animation: pageOut 0.8s ease forwards;
+            transform-origin: left;
+            backface-visibility: hidden; /* 🔥 MELHORIA */
+        }
+
+        @keyframes pageOut {
+            0% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateY(-90deg) translateX(-50px); /* 🔥 CORREÇÃO PRINCIPAL */
+                opacity: 0;
+            }
+        }
+
+        /* BOTÃO */
+        .btn-introducao {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            background: #6c79ff;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+            .btn-introducao:hover {
+                background: #4e5bd9;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="slide" id="slide">
+        <div class="content-box">
+
+            <button type="button" class="btn-introducao" onclick="irIntroducao()">Introdução ⬅</button>
+
+            <h1>O que é SWEBOK</h1>
+
+            <ul>
+                <li>Guia da Engenharia de Software</li>
+                <li>Organizado pela IEEE Computer Society</li>
+                <li>Base de referência para boas práticas</li>
+            </ul>
+
+            <div class="grid">
+                <div class="box">
+                    <h3>Definição</h3>
+                    <div class="placeholder">
+                        O SWEBOK é um manual que organiza os principais conhecimentos da Engenharia de Software em áreas de conhecimento.
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>Importância</h3>
+                    <div class="placeholder">
+                        Ele padroniza conceitos e serve como apoio para estudo, prática profissional e desenvolvimento de software com qualidade.
+                    </div>
+                </div>
+            </div>
+
+            <div class="placeholder">
+                O guia contribui para consolidar práticas reconhecidas e preparar estudantes e profissionais para novas tecnologias.
+            </div>
+
+            <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+                <button type="button" data-link="Tópico 1.html" onclick="transicao(event)">⬅ Voltar</button>
+                <button type="button" data-link="Tópico 3.html" onclick="transicao(event)">Próximo ➡</button>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Tema 2 - Engenharia de Software
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução - SWEBOK</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at top, #1a1f3a, #0d0f1c);
+            font-family: 'Segoe UI', sans-serif;
+            perspective: 1200px;
+        }
+
+        /* LIVRO */
+        .slide {
+            animation: fadeIn 1s ease;
+            width: 850px;
+            max-width: 90%;
+            padding: 50px 40px 50px 80px;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #141933, #0f1226);
+            box-shadow: 0 0 40px rgba(108,121,255,0.3), inset 0 0 20px rgba(255,255,255,0.05);
+            border: 2px solid rgba(108,121,255,0.3);
+            position: relative;
+            text-align: center;
+            transform-origin: left;
+            overflow: hidden;
+        }
+
+            /* LINHAS TECNOLÓGICAS */
+            .slide::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image: linear-gradient(rgba(108,121,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(108,121,255,0.06) 1px, transparent 1px);
+                background-size: 40px 40px;
+                opacity: 0.15;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+        /* ANIMAÇÃO DE ENTRADA */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 🔥 ANIMAÇÃO CORRIGIDA (VIRANDO PARA ESQUERDA) */
+        .page-out {
+            animation: pageOut 0.8s ease forwards;
+        }
+
+        @keyframes pageOut {
+            0% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateY(-90deg) translateX(-40px); /* 🔥 CORREÇÃO AQUI */
+                opacity: 0;
+            }
+        }
+
+        /* LOMBADA */
+        .slide::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 35px;
+            height: 100%;
+            border-radius: 20px 0 0 20px;
+            background: linear-gradient(to right, #0b0e1f, #1a1f3a 40%, #0b0e1f);
+            box-shadow: inset -5px 0 10px rgba(0,0,0,0.6), inset 5px 0 10px rgba(255,255,255,0.05);
+            z-index: 2;
+        }
+
+        .inner-border {
+            position: absolute;
+            inset: 10px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.08);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* TEXTO */
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 3px;
+            color: #a8b2ff;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 3;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: #cfd6ff;
+            margin-bottom: 40px;
+            font-weight: 400;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* GRID */
+        .grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .box {
+            background: rgba(255,255,255,0.03);
+            padding: 15px;
+            border-radius: 10px;
+            width: 45%;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .placeholder {
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* BOTÃO */
+        button {
+            padding: 10px 25px;
+            border-radius: 10px;
+            border: none;
+            background: #6c79ff;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+            button:hover {
+                background: #4e5bd9;
+                transform: scale(1.05);
+            }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            position: relative;
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slide" id="slide">
+
+        <div class="inner-border"></div>
+
+        <h1>SWEBOK</h1>
+        <h2>Software Engineering Body of Knowledge</h2>
+
+        <div class="grid">
+            <div class="box">
+                <h3>Apresentadores</h3>
+                <div class="placeholder"><strong>Abner Peixoto Santana Brochado</strong></div>
+                <div class="placeholder"><strong>Arthur Henrique Rodrigues</strong></div>
+            </div>
+
+            <div class="box">
+                <h3>Informações Acadêmicas</h3>
+                <div class="placeholder">Faculdade de Tecnologia de Campinas - Fatec Campinas</div>
+                <div class="placeholder">Análise e Desenvolvimento de Sistemas</div>
+                <div class="placeholder">Engenharia de Software I</div>
+            </div>
+        </div>
+
+        <div class="placeholder" style="position: relative; z-index: 3;">
+            Seminário sobre o Corpo de Conhecimento em Engenharia de Software e sua importância para estudantes e profissionais da área da computação.
+        </div>
+
+        <div style="margin-top: 30px; position: relative; z-index: 3;">
+            <button type="button" data-link="Tópico 1.html" onclick="transicao(event)">Iniciar ➡️</button>
+        </div>
+
+        <div class="footer">
+            Seminário - Engenharia de Software I
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+
+

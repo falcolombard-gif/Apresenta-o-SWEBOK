@@ -1,0 +1,212 @@
+﻿/* RESET B�SICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CORPO */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* SLIDE PRINCIPAL */
+.slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* T�TULOS */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #a8b2ff;
+}
+
+/* TEXTO */
+p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    opacity: 0.9;
+}
+
+/* LISTAS */
+ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+li {
+    font-size: 1.3rem;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+/* CAIXA DE CONTE�DO (pra organizar melhor) */
+.content-box {
+    max-width: 800px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* GRID PARA ORGANIZA��O (2 COLUNAS) */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* CAIXAS INTERNAS */
+.box {
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* PLACEHOLDER VISUAL (para preencher depois) */
+.placeholder {
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 10px;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* RODAP� */
+.footer {
+    position: absolute;
+    bottom: 15px;
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+/* BOT�ES (se usar navega��o depois) */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #6c79ff;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    button:hover {
+        background: #4e5bd9;
+    }
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* ANIMACOES DE LIVRO */
+body {
+    perspective: 1200px;
+    overflow-x: hidden;
+}
+
+body .slide {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+body .slide.book-enter-forward {
+    animation: livroEntradaAvanco 0.8s ease both !important;
+    transform-origin: right center !important;
+}
+
+body .slide.book-enter-back {
+    animation: livroEntradaVolta 0.8s ease both !important;
+    transform-origin: left center !important;
+}
+
+body .slide.page-out-forward {
+    animation: livroSaidaAvanco 0.8s ease forwards !important;
+    transform-origin: left center !important;
+}
+
+body .slide.page-out-back {
+    animation: livroSaidaVolta 0.8s ease forwards !important;
+    transform-origin: right center !important;
+}
+
+@keyframes livroEntradaAvanco {
+    from {
+        opacity: 0;
+        transform: rotateY(88deg) translateX(55px);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateY(0deg) translateX(0);
+    }
+}
+
+@keyframes livroSaidaAvanco {
+    from {
+        opacity: 1;
+        transform: rotateY(0deg) translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: rotateY(-88deg) translateX(-55px);
+    }
+}
+
+@keyframes livroEntradaVolta {
+    from {
+        opacity: 0;
+        transform: rotateY(-88deg) translateX(-55px);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateY(0deg) translateX(0);
+    }
+}
+
+@keyframes livroSaidaVolta {
+    from {
+        opacity: 1;
+        transform: rotateY(0deg) translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: rotateY(88deg) translateX(55px);
+    }
+}

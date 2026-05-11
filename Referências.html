@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referências - Engenharia de Software</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <style>
+        body {
+            perspective: 1200px;
+        }
+
+        .slide {
+            animation: pageIn 0.8s ease;
+            transform-origin: right;
+            position: relative;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+        }
+
+        @keyframes pageIn {
+            from {
+                opacity: 0;
+                transform: rotateY(90deg) translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: rotateY(0deg) translateX(0);
+            }
+        }
+
+        .page-out {
+            animation: pageOut 0.8s ease forwards;
+            transform-origin: left;
+            backface-visibility: hidden;
+        }
+
+        @keyframes pageOut {
+            0% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateY(-90deg) translateX(-50px);
+                opacity: 0;
+            }
+        }
+
+        .content-box {
+            padding: 60px 30px 30px 30px;
+        }
+
+        .referencias-lista {
+            text-align: left;
+            max-height: 58vh;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .referencias-lista li {
+            font-size: 0.86rem;
+            line-height: 1.35;
+            padding: 8px 12px;
+        }
+
+        .btn-introducao {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 8px 15px;
+            border-radius: 8px;
+            background: #6c79ff;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        .btn-introducao:hover {
+            background: #4e5bd9;
+        }
+
+        .nav-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slide" id="slide">
+
+        <div class="content-box">
+
+            <button type="button" class="btn-introducao" onclick="irIntroducao()">Introdução ⬅</button>
+
+            <h1>Referências</h1>
+
+            <ul class="referencias-lista">
+                <li>SEBoK. An Overview of the SWEBOK Guide. Disponível em: https://sebokwiki.org/wiki/An_Overview_of_the_SWEBOK_Guide. Acesso em: 16 mar. 2026.</li>
+                <li>MARINO, Sonia I.; ALFONZO, Pedro L. Las áreas de conocimiento SWEBOK en producciones de graduación. E-Ciencias de la Información, v. 9, n. 2, p. 103-120, 2019.</li>
+                <li>ALARCÓN, A.; CALLEJAS, M.; OTÁLORA, J. SWEBOK-based process for the teaching and learning of requirements engineering. Springer, 2018.</li>
+                <li>FAIRLEY, Richard E.; BOURQUE, Pierre; KEPPLER, John. The impact of SWEBOK Version 3 on software engineering education and training. IEEE, 2014.</li>
+                <li>DEV MEDIA. Qualidade de software na engenharia de software. Disponível em: https://www.devmedia.com.br/qualidade-de-software-engenharia-de-software-29/18209. Acesso em: 29 mar. 2026.</li>
+                <li>WIKIBOOKS. Engenharia de software. Disponível em: https://pt.wikibooks.org/wiki/Engenharia_de_Software. Acesso em: 29 mar. 2026.</li>
+                <li>ATLASSIAN. Metodologia Waterfall (Cascata). Disponível em: https://www.atlassian.com/br/agile/project-management/waterfall-methodology. Acesso em: 29 mar. 2026.</li>
+                <li>BOURQUE, Pierre; FAIRLEY, Richard E. Guide to the Software Engineering Body of Knowledge (SWEBOK Guide). Version 3.0. IEEE Computer Society, 2014.</li>
+                <li>MEAD, Nancy R. et al. Secure software engineering: a new teaching perspective. Carnegie Mellon University, 2005.</li>
+                <li>PRESSMAN, Roger S.; MAXIM, Bruce R. Engenharia de software: uma abordagem profissional. 8. ed. Porto Alegre: Bookman, 2016.</li>
+            </ul>
+
+            <div class="nav-buttons">
+                <button type="button" data-link="Tópico 11.html" onclick="transicao(event)">⬅ Voltar</button>
+                <button type="button" data-link="Conclusão.html" onclick="transicao(event)">Contracapa ➡</button>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Referências - Engenharia de Software
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

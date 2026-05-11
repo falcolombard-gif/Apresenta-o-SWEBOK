@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 6 - Projeto de Software</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <style>
+        body {
+            perspective: 1200px;
+        }
+
+        /* 🔥 ENTRADA (vindo da direita) */
+        .slide {
+            animation: pageIn 0.8s ease;
+            transform-origin: right;
+            position: relative;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+        }
+
+        @keyframes pageIn {
+            from {
+                opacity: 0;
+                transform: rotateY(90deg) translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: rotateY(0deg) translateX(0);
+            }
+        }
+
+        /* 🔥 SAÍDA (virando pra esquerda) */
+        .page-out {
+            animation: pageOut 0.8s ease forwards;
+            transform-origin: left;
+            backface-visibility: hidden;
+        }
+
+        @keyframes pageOut {
+            0% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateY(-90deg) translateX(-50px);
+                opacity: 0;
+            }
+        }
+
+        /* ZONA SEGURA */
+        .content-box {
+            padding: 60px 30px 30px 30px;
+        }
+
+        /* CAMADAS */
+        .camadas {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+            .camadas .box:nth-child(1) {
+                width: 60%;
+                margin: 0 auto;
+            }
+
+            .camadas .box:nth-child(2) {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .camadas .box:nth-child(3) {
+                width: 100%;
+            }
+
+        @media (max-width: 768px) {
+            .camadas .box {
+                width: 100% !important;
+            }
+        }
+
+        /* BOTÃO INTRODUÇÃO */
+        .btn-introducao {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 8px 15px;
+            border-radius: 8px;
+            background: #6c79ff;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+            .btn-introducao:hover {
+                background: #4e5bd9;
+            }
+
+        /* BOTÕES */
+        .nav-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slide" id="slide">
+
+        <div class="content-box">
+
+            <button type="button" class="btn-introducao" onclick="irIntroducao()">Introdução ⬅</button>
+
+            <h1>Projeto e Arquitetura</h1>
+
+            <p>
+                O projeto de software transforma uma visão arquitetural em uma implementação viável, considerando estrutura, componentes e qualidade.
+            </p>
+
+            <div class="camadas">
+                <div class="box">
+                    <h3>Arquitetura</h3>
+                    <p>Define estruturas fundamentais, relações entre elementos e propriedades do sistema.</p>
+                </div>
+
+                <div class="box">
+                    <h3>Design</h3>
+                    <p>Organiza soluções técnicas para atender às partes interessadas e tornar o software implementável.</p>
+                </div>
+
+                <div class="box">
+                    <h3>Tecnologias Emergentes</h3>
+                    <p>IA, aprendizado de máquina, IoT e segurança influenciam as práticas modernas de projeto.</p>
+                </div>
+            </div>
+
+            <div class="placeholder">
+                Arquitetura e design buscam confiabilidade, proteção, segurança e adaptação a sistemas cada vez mais complexos.
+            </div>
+
+            <div class="nav-buttons">
+                <button type="button" data-link="Tópico 5.html" onclick="transicao(event)">⬅ Voltar</button>
+                <button type="button" data-link="Tópico 7.html" onclick="transicao(event)">Próximo ➡</button>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Tema 6 - Engenharia de Software
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+

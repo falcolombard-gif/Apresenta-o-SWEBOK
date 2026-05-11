@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 1 - Problema da Engenharia de Software</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <style>
+        body {
+            perspective: 1200px; /* 🔥 AJUSTADO para igual ao Tema 2 */
+        }
+
+        /* 🔥 NOVA ENTRADA (vindo da direita - COPIADA DO TEMA 2) */
+        .slide {
+            animation: pageIn 0.8s ease;
+            transform-origin: right; /* 🔥 IMPORTANTE */
+        }
+
+        @keyframes pageIn {
+            from {
+                opacity: 0;
+                transform: rotateY(90deg) translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: rotateY(0deg) translateX(0);
+            }
+        }
+
+        /* 🔥 SAÍDA (mantida padrão livro virando pra esquerda) */
+        .page-out {
+            animation: pageOut 0.8s ease forwards;
+            transform-origin: left;
+        }
+
+        @keyframes pageOut {
+            0% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateY(-90deg) translateX(-50px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slide" id="slide">
+        <div class="content-box">
+
+            <h1>Introdução</h1>
+
+            <ul>
+                <li>Engenharia de Software</li>
+                <li>Sistemas cada vez mais complexos</li>
+                <li>Necessidade de padronizar conhecimentos</li>
+            </ul>
+
+            <div class="grid">
+                <div class="box">
+                    <h3>Contexto</h3>
+                    <div class="placeholder">
+                        A Engenharia de Software envolve desenvolvimento, manutenção e evolução de sistemas, tornando-se essencial diante do avanço tecnológico.
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>SWEBOK</h3>
+                    <div class="placeholder">
+                        O SWEBOK reúne conceitos essenciais e boas práticas para orientar profissionais na área de Engenharia de Software.
+                    </div>
+                </div>
+            </div>
+
+            <div class="placeholder">
+                O artigo busca mostrar a estrutura, a importância e a utilidade do SWEBOK para lidar com desafios tecnológicos.
+            </div>
+
+            <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+                <button type="button" data-link="Index.html" onclick="transicao(event)">⬅ Voltar</button>
+                <button type="button" data-link="Tópico 2.html" onclick="transicao(event)">Próximo ➡</button>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Tema 1 - Engenharia de Software
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
